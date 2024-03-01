@@ -22,7 +22,7 @@
     homeConfigurations = {
       lxudrr = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ stylix.homeManagerModules.stylix ./home/home.nix ];
+        modules = [ ./home/home.nix ];#stylix.homeManagerModules.stylix ./home/home.nix ];
       };
     };
   };

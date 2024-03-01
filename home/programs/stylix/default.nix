@@ -2,7 +2,7 @@
 
 {
   stylix = {
-    image = ../../wallpapers/basketball.jpg;
+    image = ../../wallpapers/anime.jpg;
 
     # polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/shadesmear-dark.yaml";#black-metal-bathory.yaml";

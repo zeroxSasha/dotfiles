@@ -1,5 +1,8 @@
+{ pkgs, ...}:
+
 {
   imports = [
-    ./stylix
+    ./kitty
+    ./hypr
   ];
 }
