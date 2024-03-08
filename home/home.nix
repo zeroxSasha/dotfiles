@@ -39,47 +39,47 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     firefox
+    chromium
     tree
-      kitty
-      git
-      gnumake
-      wl-clipboard
-      grim # for screenshots
-      slurp # for screenshots
-      obsidian
-      libreoffice
-      discord
-      htop
-      telegram-desktop
-      neofetch
-      qemu
-      dbeaver
-      pavucontrol
-      maxima
-      wxmaxima
-      vscode
-      gcc
-      mc
-      mlocate
-      virtualbox
-  	 cowsay
-      lolcat
-      smartmontools
-  	 wireshark-qt
-  	 cmake
-  	 direnv
-  	 python3  	 
-  	 chromium
-  	 docker
-  	 sqlite
-  	 gimp
-  	 xdotool
-  	 wget
-  	 vim
-  	 neovim
-  	 vlc
-  	 nodejs
-	 unzip
+    kitty
+    git
+    gnumake
+    wl-clipboard
+    grim # for screenshots
+    slurp # for screenshots
+    obsidian
+    libreoffice
+    discord
+    htop
+    telegram-desktop
+    neofetch
+    qemu
+    dbeaver
+    pavucontrol
+    maxima
+    wxmaxima
+    vscode
+    gcc
+    mc
+    mlocate
+    virtualbox
+    cowsay
+    lolcat
+    smartmontools
+    wireshark-qt
+    cmake
+    direnv
+    python3
+    docker
+    sqlite
+    gimp
+    xdotool
+    wget
+    vim
+    neovim
+    vlc
+    nodejs
+    unzip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -111,7 +111,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
+  
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

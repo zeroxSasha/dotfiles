@@ -53,9 +53,10 @@
     xwayland.enable = true;
   };  
   
-  # ZRAM
   zramSwap.enable = true;
   zramSwap.memoryPercent = 25;
+  
+  programs.light.enable = true;
 
   # garbage collect
   nix = {
@@ -91,7 +92,16 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
+  # hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -99,7 +109,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lxudrr = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "video" ];
   };
 
   users.users.enzo = {
