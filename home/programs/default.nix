@@ -7,6 +7,6 @@
     ./rofi
     ./Code
     ./waybar
-    ./dunst
+    ./zsh
   ];
 }

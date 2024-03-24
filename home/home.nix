@@ -39,6 +39,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     firefox
+    zoom-us
+    redis
     chromium
     tree
     kitty
@@ -52,6 +54,7 @@
     discord
     htop
     telegram-desktop
+    obs-studio
     neofetch
     qemu
     dbeaver
@@ -61,6 +64,7 @@
     vscode
     gcc
     mc
+    insomnia
     mlocate
     virtualbox
     cowsay
@@ -80,6 +84,7 @@
     vlc
     nodejs
     unzip
+    github-desktop
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
