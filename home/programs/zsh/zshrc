@@ -100,5 +100,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias v="nix run ~/nvim.custom/# --"
-export EDITOR="nix run ~/nvim.custom/# --"
+alias v="vim"
+export EDITOR="vim"

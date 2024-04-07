@@ -130,6 +130,7 @@
     rofi-wayland
     swww
     hackgen-nf-font
+    jrnl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

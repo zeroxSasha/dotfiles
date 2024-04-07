@@ -1,22 +1,5 @@
 // Place your key bindings in this file to override the defaults
 [
-    /*{
-        "key": "ctrl+x",
-        "command": "code-runner.run"
-    },
-    {
-        "key": "ctrl+alt+n",
-        "command": "-code-runner.run"
-    },
-    {
-        "key": "ctrl+x",
-        "command": "-editor.action.clipboardCutAction"
-    },
-    {
-        "key": "ctrl+x",
-        "command": "-filesExplorer.cut",
-        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-    },*/
     {
         "key": "ctrl+tab",
         "command": "workbench.action.nextEditor"
@@ -97,9 +80,28 @@
         "key": "ctrl+shift+f",
         "command": "github.copilot.toggleCopilot"
     },
-    //{
-    //"key": "ctrl+z",
-    //"command": "workbench.action.toggleZenMode"
-    //},
-    // end
+    {
+        "key": "alt+c",
+        "command": "-toggleSearchCaseSensitive",
+        "when": "searchViewletFocus"
+    },
+    {
+        "key": "alt+c",
+        "command": "-toggleFindCaseSensitive",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+c",
+        "command": "-toggleSearchEditorCaseSensitive",
+        "when": "inSearchEditor && searchInputBoxFocus"
+    },
+    {
+        "key": "alt+c",
+        "command": "-workbench.action.terminal.toggleFindCaseSensitive",
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+    },
+    {
+        "key": "alt+`",
+        "command": "extension.ecsstractor_port_run"
+    },
 ]
