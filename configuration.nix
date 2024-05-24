@@ -109,7 +109,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lxudrr = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "video" ];
+    extraGroups = [ "wheel" "docker" "video" "wireshark" ];
   };
 
   users.users.enzo = {
@@ -157,14 +157,49 @@
   
   # Register AppImage files as a binary type to binfmt_misc
   boot.binfmt.registrations.appimage = {
-  wrapInterpreterInShell = false;
-  interpreter = "${pkgs.appimage-run}/bin/appimage-run";
-  recognitionType = "magic";
-  offset = 0;
-  mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
-  magicOrExtension = ''\x7fELF....AI\x02'';
-};
+    wrapInterpreterInShell = false;
+    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+    recognitionType = "magic";
+    offset = 0;
+    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
+    magicOrExtension = ''\x7fELF....AI\x02'';
+  };
+
+
+    services.nginx = {
+    enable = true;
+    virtualHosts = {
+      "localhost" = {  
+        root = "/var/www/homePage";
+	listen = [
+	 {
+	   addr = "localhost";
+	   port = 1234;	
+	 }
+	];
+      };
+      "192.168.0.148" = {  
+        root = "/var/www/memnad_pwa";
+	listen = [
+	 {
+	   addr = "192.168.0.148";
+	   port = 1234;
+	 }
+	];
+      };
+    };
+  };
+
   
+  # Allow dumcap (wireshark) to use interface 
+  security.wrappers.dumpcap = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_net_raw+ep";
+    source = "${pkgs.wireshark}/bin/dumpcap";
+  };
+
+   
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

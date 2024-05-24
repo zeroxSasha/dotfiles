@@ -3,7 +3,7 @@
     "editor.mouseWheelZoom": true,
     "editor.fontSize": 17,
     "window.zoomLevel": 1.5,
-    "files.autoSaveDelay": 2,
+    "files.autoSave": "onFocusChange",
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
     "editor.suggest.insertMode": "replace",
@@ -13,13 +13,12 @@
     "[json]": {},
     "update.showReleaseNotes": false,
     "zenMode.hideLineNumbers": false,
-    "editor.lineNumbers": "relative",    
-    "files.autoSave": "afterDelay",
+    "editor.lineNumbers": "relative",   
     "breadcrumbs.enabled": false,
     "window.menuBarVisibility": "toggle",
     "cmake.configureOnOpen": true,
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
@@ -30,7 +29,7 @@
     "liveSassCompile.settings.generateMap": false,
     "liveSassCompile.settings.autoprefix": [
         "> 1%",
-        "last 5 versions"
+        "last 3 versions"
     ],
     "liveSassCompile.settings.formats": [
         {

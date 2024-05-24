@@ -2,10 +2,9 @@
 
 {
   stylix = {
-    image = ../../wallpapers/cuphead-4k.jpg;
+    image = "../../wallpapers/cuphead-4k.jpg";
 
-    # polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/shadesmear-dark.yaml"; # black-metal-bathory.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-dune.yaml"; # black-metal-bathory.yaml";
 
     fonts = {
       serif = {

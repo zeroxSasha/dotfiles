@@ -39,7 +39,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     firefox
-    spotify
     zoom-us
     redis
     chromium
@@ -58,6 +57,7 @@
     obs-studio
     neofetch
     qemu
+    rustdesk
     dbeaver
     pavucontrol
     maxima
@@ -86,6 +86,11 @@
     nodejs
     unzip
     github-desktop
+    solc
+    krita
+    termius
+    rustup
+    droidcam
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -115,7 +120,7 @@
   #  /etc/profiles/per-user/lxudrr/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
   
   # Let Home Manager install and manage itself.
