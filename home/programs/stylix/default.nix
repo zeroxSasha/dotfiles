@@ -2,7 +2,7 @@
 
 {
   stylix = {
-    image = "../../wallpapers/cuphead-4k.jpg";
+    image = "../../wallpapers/anime.jpg";
 
     base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-dune.yaml"; # black-metal-bathory.yaml";
 
