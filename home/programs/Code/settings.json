@@ -4,7 +4,6 @@
   "editor.fontSize": 17,
   "editor.lineHeight": 25,
   "editor.letterSpacing": 0.5,
-  "files.trimTrailingWhitespace": true,
   "editor.fontWeight": "400",
   "prettier.eslintIntegration": true,
   "editor.cursorStyle": "line",
@@ -47,9 +46,10 @@
         {
             "format": "expanded",
             "extensionName": ".css",
-            "savePath": "/css"
+            "savePath": "./src"
         }
     ],
     "liveSassCompile.settings.showOutputWindow": false,
     "ecsstractor_port.destination": "/css/ecsstractor.css",
+    "workbench.iconTheme": "vscode-icons"
 }
