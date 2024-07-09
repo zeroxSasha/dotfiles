@@ -66,6 +66,7 @@
     gcc
     mc
     insomnia
+    postman
     mlocate
     virtualbox
     cowsay
@@ -95,7 +96,16 @@
     gtk4
     feh
     evince # pdf reader
+    virt-manager 
+    jq # command-line JSON processor
+    zip
   ];
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.vanilla-dmz;
+    name = "Vanilla-DMZ";
+  }; 
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

@@ -78,7 +78,7 @@
     # virtualisation.virtualbox.guest.x11 = true;
 
   # UnFree and UnSecure Software
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;  
       
   # NoNeedPassword
   security.sudo.wheelNeedsPassword = false;
@@ -109,7 +109,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lxudrr = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "video" "wireshark" ];
+    extraGroups = [ "wheel" "docker" "video" "wireshark" "libvirtd" ];
   };
 
   users.users.enzo = {
@@ -189,6 +189,23 @@
       };
     };
   };
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd];
+      };
+    };
+  };  
+  programs.virt-manager.enable = true; 
 
   
   # Allow dumcap (wireshark) to use interface 
