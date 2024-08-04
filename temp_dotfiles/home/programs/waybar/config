@@ -1,0 +1,28 @@
+{
+    "layer": "top",
+    "modules-left": [],
+    "modules-center": ["sway/window"],
+    "modules-right": ["network", "cpu", "battery", "clock"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format-alt": "{:%A, %B %d, %Y}",
+	    "format": "{:%I:%M %p}"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{:.0f}% ",
+        "max-length": 10
+    },
+    "network": {
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "Disconnected ⚠",
+        "max-length": 50
+    }
+}
