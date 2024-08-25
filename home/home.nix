@@ -83,7 +83,7 @@
     vim
     neovim
     vlc
-    nodejs
+    nodejs_21
     unzip
     github-desktop
     solc
@@ -103,6 +103,12 @@
     mtr # Combines the functionality of traceroute and ping into a single diagnostic tool
     nmap # Scans hosts for open ports
     unixtools.netstat # Displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+    docker-compose
+    ripgrep # A utility that combines the usability of The Silver Searcher with the raw speed of grep
+    bat # A cat clone with syntax highlighting and Git integration
+    eza # A modern, maintained replacement for ls
+    libsixel # The SIXEL library for console graphics, and converter programs
+    foot # A fast, lightweight and minimalistic Wayland terminal emulator
   ];
 
 

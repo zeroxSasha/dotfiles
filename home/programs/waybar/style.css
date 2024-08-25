@@ -1,72 +1,85 @@
 * {
-    border: none;
+    font-family:
+      SpaceMono Nerd Font,
+      feather;
+    font-weight: 500;
+    font-size: 13.5pt;
+    color: #c0caf5;
+  }
+  
+  /* main waybar */
+  window#waybar {
+    background: rgba(26, 27, 38, 0.8);
+  }
+  
+  /* when hovering over modules */
+  tooltip {
+    background: #1e1e2e;
+    border-radius: 5%;
+  }
+  
+  #workspaces button {
+    padding: 2px;
+  }
+  
+  /* Sets active workspace to have a solid line on the bottom */
+  #workspaces button.active {
+    border-bottom: 2px solid #7aa2f7;
     border-radius: 0;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    min-height: 0;
-}
-
-window#waybar {
-    background: #282A36;
-    color: #F8F8F2;
-}
-
-tooltip {
-    background: rgba(43, 48, 59, 0.5);
-    border: 1px solid rgba(100, 114, 125, 0.5);
-}
-tooltip label {
-  color: white;
-}
-
-#workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-bottom: 3px solid transparent;
-}
-
-#workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid white;
-}
-
-#mode, #clock, #battery {
+    margin-top: 2px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  /* More workspace stuff for highlighting on hover */
+  #workspaces button.focused {
+    color: #a6adc8;
+  }
+  
+  #workspaces button.urgent {
+    color: #f7768e;
+  }
+  
+  #workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+  }
+  
+  /* Sets background, padding, margins, and borders for (all) modules */
+  #workspaces,
+  #clock,
+  #window,
+  #temperature,
+  #cpu,
+  #memory,
+  #wireplumber,
+  #battery {
+    background: rgba(26, 27, 38, 0);
     padding: 0 10px;
-}
-
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
-}
-
-#clock {
-}
-#cpu {
-
-}
-
-#battery {
-}
-
-
-#battery.charging {
-    color: #50FA7B;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
-}
-
-#battery.warning:not(.charging) {
-    background: #f53c3c;
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
+    border: 0;
+  }
+  
+  #workspaces {
+    padding-right: 0px;
+  }
+  
+  /* Hide window module when not focused on window or empty workspace */
+  window#waybar.empty #window {
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  
+  #window {
+    border-radius: 12px;
+  }
+  
+  /* close right side of bar */
+  #temperature {
+    border-radius: 12px 0 0 12px;
+  }
+  
+  /* close left side of bar */
+  #battery {
+    border-radius: 0 12px 12px 0;
+  }
+  

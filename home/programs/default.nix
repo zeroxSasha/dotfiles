@@ -2,11 +2,15 @@
 
 {
   imports = [
-    ./kitty
+    ./foot
     ./hypr
-    ./rofi
-    ./Code
+    ./wofi
+    ./code
     ./waybar
     ./zsh
+    ./dunst
+    ./nvim
+    ./thunar
   ];
 }
+

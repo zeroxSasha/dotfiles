@@ -7,8 +7,6 @@
     ./home/programs/stylix/default.nix
   ];
   
-  users.users.sasha.isNormalUser = true;
-  
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -112,11 +110,6 @@
     extraGroups = [ "wheel" "docker" "video" "wireshark" "libvirtd" ];
   };
 
-  users.users.enzo = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -127,7 +120,7 @@
     waybar
     dunst
     libnotify
-    rofi-wayland
+    wofi
     swww
     hackgen-nf-font
     jrnl
