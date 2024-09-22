@@ -107,7 +107,7 @@
     swww
     hackgen-nf-font
     jrnl
-    ciscoPacketTracer8
+	# ciscoPacketTracer8
   ];
 
 
@@ -194,14 +194,14 @@
     '';
   };
   
-  nixpkgs.overlays = [
+	#nixpkgs.overlays = [
     # cisco manual installation
-    (_: prev: {
-      ciscoPacketTracer8 = prev.ciscoPacketTracer8.overrideAttrs (_: {
-        src = ./packet-tracer.deb;
-      });
-    })
-  ];
+	#(_: prev: {
+	# ciscoPacketTracer8 = prev.ciscoPacketTracer8.overrideAttrs (_: {
+	#   src = ./packet-tracer.deb;
+	# });
+	#})
+	#];
     
   networking.firewall.enable = false;
 
