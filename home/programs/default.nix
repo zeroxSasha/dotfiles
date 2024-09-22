@@ -9,7 +9,7 @@
     ./waybar
     ./zsh
     ./dunst
-    ./nvim
+    #./nvim
     ./thunar
   ];
 }

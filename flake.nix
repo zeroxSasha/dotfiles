@@ -20,6 +20,7 @@
       };
     };
     homeConfigurations = {
+  # virtualisation.virtualbox.guest.draganddrop = true;
       lxudrr = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home/home.nix ];#stylix.homeManagerModules.stylix ./home/home.nix ];

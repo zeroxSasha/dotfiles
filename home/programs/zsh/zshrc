@@ -101,16 +101,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias v="vim"
+alias v="nvim"
 alias grep="rg"
-alias cat="bat"
 alias ls='eza --icons --group-directories-first'  # List files and directories
 alias ll='eza --icons -lah --group-directories-first'  # List in long format with permissions and human-readable sizes
 alias la='eza --icons -a --group-directories-first'  # List all files and directories, including hidden ones
 alias tree='eza --icons --tree' # `eza` alias for displaying directory trees
 
-alias econf="vim ~/.dotfiles/"
+alias econf="nvim ~/.dotfiles/"
 alias wrc="sudo nixos-rebuild switch --flake ~/.dotfiles"
 alias wrh="home-manager switch --flake ~/.dotfiles"
 
-export EDITOR="vim"
+export EDITOR="nvim"
+export BROWSER="firefox"

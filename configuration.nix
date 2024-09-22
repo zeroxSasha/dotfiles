@@ -13,21 +13,15 @@
       efi.canTouchEfiVariables = true;
       timeout = 1;
     };
-
-    kernelPackages = pkgs.linuxPackages_latest; # Get latest linux kernel
+    kernelPackages = pkgs.linuxPackages_6_9; # Get latest linux kernel
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -38,6 +32,16 @@
     keyMap = "us";
     # useXkbConfig = true; # use xkb.options in tty.
   };
+
+  # Dark Theme
+  environment.variables = {
+    GTK_THEME = "Adwaita-dark";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+  };
+  services.gnome.gnome-keyring.enable = true; # necessary for Adwaita theme
+	services.dbus.enable = true; # necessary for gtk apps
+	qt.platformTheme = "qt5ct";
+
 
   services.xserver = {
     enable = true;
@@ -57,23 +61,18 @@
   programs.light.enable = true;
 
   # garbage collect
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
   };
-
+  
+  services.jenkins = {
+    enable = true;
+  };
+  
   # Experimental-Features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-    # Vbox Configuration 
-    # virtualisation.virtualbox.host.enable = true;
-    # users.extraGroups.vboxusers.members = [ "lxudrr" ]; # user with access to virtualbox
-    # virtualisation.virtualbox.host.enableExtensionPack = true;
-    # virtualisation.virtualbox.guest.enable = true;
-    # virtualisation.virtualbox.guest.x11 = true;
 
   # UnFree and UnSecure Software
   nixpkgs.config.allowUnfree = true;  
@@ -81,13 +80,6 @@
   # NoNeedPassword
   security.sudo.wheelNeedsPassword = false;
    
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
   sound.enable = true;
   security.rtkit.enable = true;
@@ -96,22 +88,13 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
   };
-  # hardware.pulseaudio.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lxudrr = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" "video" "wireshark" "libvirtd" ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     zsh    
@@ -127,15 +110,6 @@
     ciscoPacketTracer8
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -184,21 +158,21 @@
     };
   };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [(pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd];
-      };
-    };
-  };  
+	virtualisation.libvirtd = {
+		enable = true;
+		qemu = {
+			package = pkgs.qemu_kvm;
+			runAsRoot = true;
+			swtpm.enable = true;
+			ovmf = {
+				enable = true;
+				packages = [(pkgs.OVMF.override {
+					secureBoot = true;
+					tpmSupport = true;
+				}).fd];
+			};
+		};
+	};  
   programs.virt-manager.enable = true; 
 
   
@@ -221,6 +195,7 @@
   };
   
   nixpkgs.overlays = [
+    # cisco manual installation
     (_: prev: {
       ciscoPacketTracer8 = prev.ciscoPacketTracer8.overrideAttrs (_: {
         src = ./packet-tracer.deb;
@@ -228,17 +203,8 @@
     })
   ];
     
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
   system.stateVersion = "23.11";
 }
-
-
-
-
-
 

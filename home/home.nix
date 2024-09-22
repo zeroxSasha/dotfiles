@@ -60,14 +60,11 @@
     rustdesk
     dbeaver
     pavucontrol
-    maxima
-    wxmaxima
     vscode
     gcc
     mc
     insomnia
     mlocate
-    virtualbox
     cowsay
     lolcat
     smartmontools
@@ -109,14 +106,35 @@
     eza # A modern, maintained replacement for ls
     libsixel # The SIXEL library for console graphics, and converter programs
     foot # A fast, lightweight and minimalistic Wayland terminal emulator
+	shellcheck
+	ansible
+	maxima
+    wxmaxima
   ];
 
-
+  # pointer
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.vanilla-dmz;
     name = "Vanilla-DMZ";
   }; 
+  
+
+  xdg.mimeApps = {
+	enable = true;
+	# needed only for several applications you want to choose from
+	associations.added = {
+		"application/pdf" = ["org.gnome.Evince.desktop"];
+		"x-scheme-handler/http" = ["firefox.desktop"];
+		"x-scheme-handler/https" = ["firefox.desktop"];
+	};
+	# needed for default applications
+    defaultApplications = {
+      "application/pdf" = ["org.gnome.Evince.desktop"];
+      "x-scheme-handler/http" = ["firefox.desktop"];
+	  "x-scheme-handler/https" = ["firefox.desktop"];
+    };
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
