@@ -33,11 +33,6 @@
     # useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Dark Theme
-  environment.variables = {
-    GTK_THEME = "Adwaita-dark";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-  };
   services.gnome.gnome-keyring.enable = true; # necessary for Adwaita theme
 	services.dbus.enable = true; # necessary for gtk apps
 	qt.platformTheme = "qt5ct";
@@ -107,9 +102,12 @@
     swww
     hackgen-nf-font
     jrnl
-	# ciscoPacketTracer8
+	dmidecode
+	virtualbox
   ];
-
+	
+	virtualisation.virtualbox.host.enable = false;
+   users.extraGroups.vboxusers.members = [ "lxudrr" ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -194,14 +192,6 @@
     '';
   };
   
-	#nixpkgs.overlays = [
-    # cisco manual installation
-	#(_: prev: {
-	# ciscoPacketTracer8 = prev.ciscoPacketTracer8.overrideAttrs (_: {
-	#   src = ./packet-tracer.deb;
-	# });
-	#})
-	#];
     
   networking.firewall.enable = false;
 

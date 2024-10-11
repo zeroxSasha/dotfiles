@@ -89,13 +89,12 @@
     rustup
     droidcam
     xfce.thunar
-    gtk4
     feh
     evince # pdf reader
     virt-manager 
     jq # command-line JSON processor
     zip
-    anki-bin
+    anki-bin # flashcards
     sysstat
     mtr # Combines the functionality of traceroute and ping into a single diagnostic tool
     nmap # Scans hosts for open ports
@@ -106,18 +105,34 @@
     eza # A modern, maintained replacement for ls
     libsixel # The SIXEL library for console graphics, and converter programs
     foot # A fast, lightweight and minimalistic Wayland terminal emulator
-	shellcheck
-	ansible
-	maxima
-    wxmaxima
+	shellcheck # check shell scripts 
+	ansible 
+	maxima # math
+    wxmaxima # math
+	gammastep # Screen temperature
+	at # Schedule 
+	pstree
   ];
+  
+  # enable qt
+	# qt.enable = true;
+	#qt.platformTheme = "gtk";
+	#qt.style.name = "adwaita-dark";
+	#qt.style.package = pkgs.adwaita-qt;
 
-  # pointer
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.vanilla-dmz;
-    name = "Vanilla-DMZ";
-  }; 
+  # enable gtk
+  gtk.enable = true;
+  gtk.theme.package = pkgs.adw-gtk3;
+  gtk.theme.name = "adw-gtk3-dark";
+
+	#home.pointerCursor = {
+	#gtk.enable = true;
+	#package = pkgs.vanilla-dmz;
+	#name = "Vanilla-DMZ";
+	#size = 16;
+	#}; 
+  
+  
   
 
   xdg.mimeApps = {
@@ -135,6 +150,8 @@
 	  "x-scheme-handler/https" = ["firefox.desktop"];
     };
   };
+
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
